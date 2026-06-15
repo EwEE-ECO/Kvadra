@@ -2,14 +2,19 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function SmoothScrollProvider({ children }) {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
 
-  // Скролл к верху страницы при смене роута
   useEffect(() => {
+    if (state?.scrollTo) {
+      const timer = setTimeout(() => {
+        const el = document.getElementById(state.scrollTo);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
 
-  // Перехват кликов по якорным ссылкам (#section)
   useEffect(() => {
     const handleClick = (e) => {
       const link = e.target.closest("a");

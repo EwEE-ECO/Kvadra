@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 
 const priceItems = [
@@ -92,12 +93,13 @@ export default function PricesPage() {
           className="mt-12 text-center"
         >
           <p className="text-white/40 text-sm mb-4">Цены указаны ориентировочно. Точная стоимость зависит от сложности работ и модели оборудования.</p>
-          <a
-            href="/#contact"
+          <Link
+            to="/"
+            state={{ scrollTo: "contact" }}
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-dark font-semibold text-sm hover:bg-accent-hover transition-all"
           >
             Получить точный расчёт
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
