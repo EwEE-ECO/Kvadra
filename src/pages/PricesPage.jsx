@@ -1,51 +1,20 @@
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Check } from "lucide-react";
-
-const priceItems = [
-  {
-    title: "Чистка кондиционера",
-    items: [
-      { name: "Чистка внутреннего блока (настенный)", price: "1 500 ₽" },
-      { name: "Чистка внутреннего блока (кассетный)", price: "2 500 ₽" },
-      { name: "Чистка наружного блока", price: "1 500 ₽" },
-      { name: "Комплексная чистка (внутренний + наружный)", price: "2 500 ₽" },
-      { name: "Антибактериальная обработка", price: "500 ₽" },
-    ],
-  },
-  {
-    title: "Ремонт кондиционеров",
-    items: [
-      { name: "Выезд и диагностика", price: "500 ₽" },
-      { name: "Ремонт платы управления", price: "от 2 000 ₽" },
-      { name: "Замена вентилятора", price: "от 1 500 ₽" },
-      { name: "Замена компрессора", price: "от 8 000 ₽" },
-      { name: "Устранение утечки фреона", price: "от 1 500 ₽" },
-    ],
-  },
-  {
-    title: "Заправка фреоном",
-    items: [
-      { name: "Диагностика утечки", price: "500 ₽" },
-      { name: "Дозаправка фреоном (до 200г)", price: "2 500 ₽" },
-      { name: "Дозаправка фреоном (200-500г)", price: "3 500 ₽" },
-      { name: "Полная заправка (R32/R410A)", price: "4 500 ₽" },
-      { name: "Полная заправка (R22)", price: "5 500 ₽" },
-    ],
-  },
-  {
-    title: "Дополнительные услуги",
-    items: [
-      { name: "Монтаж кондиционера (стандартный)", price: "от 6 000 ₽" },
-      { name: "Демонтаж кондиционера", price: "от 2 000 ₽" },
-      { name: "Установка дренажного насоса", price: "2 000 ₽" },
-      { name: "Прокладка трассы (за метр)", price: "800 ₽" },
-      { name: "Замена пульта ДУ", price: "от 800 ₽" },
-    ],
-  },
-];
+import { getAll } from "../utils/db";
 
 export default function PricesPage() {
+  const items = useMemo(() => getAll("prices") || [], []);
+  const groups = useMemo(() => {
+    const map = {};
+    items.forEach((item) => {
+      const cat = item.category || "Прочее";
+      if (!map[cat]) map[cat] = [];
+      map[cat].push(item);
+    });
+    return Object.entries(map);
+  }, [items]);
+
   return (
     <section className="py-20 sm:py-28 bg-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,21 +32,21 @@ export default function PricesPage() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-8">
-          {priceItems.map((group, gi) => (
+          {groups.map(([category, items]) => (
             <motion.div
-              key={group.title}
+              key={category}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: gi * 0.1 }}
+              transition={{ duration: 0.5 }}
               className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
             >
               <h2 className="text-lg font-bold mb-4 pb-3 border-b border-white/10">
-                {group.title}
+                {category}
               </h2>
               <ul className="space-y-3">
-                {group.items.map((item) => (
-                  <li key={item.name} className="flex items-center justify-between text-sm">
-                    <span className="text-white/60">{item.name}</span>
+                {items.map((item) => (
+                  <li key={item.id} className="flex items-center justify-between text-sm">
+                    <span className="text-white/60">{item.service}</span>
                     <span className="font-semibold text-accent ml-4">{item.price}</span>
                   </li>
                 ))}

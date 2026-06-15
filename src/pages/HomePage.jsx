@@ -10,6 +10,7 @@ import { getAll } from "../utils/db";
 
 export default function HomePage() {
   const services = useMemo(() => getAll("services") || [], []);
+  const reviews = useMemo(() => getAll("reviews") || [], []);
 
   return (
     <>
@@ -18,7 +19,7 @@ export default function HomePage() {
       <ServicesSection services={services} />
       <BrandsSection />
       <WhyUs />
-      <ReviewsSection />
+      <ReviewsSection reviews={reviews} />
       <ContactForm />
     </>
   );
