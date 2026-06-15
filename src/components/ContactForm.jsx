@@ -1,15 +1,7 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, MapPin, Clock, Check } from "lucide-react";
-
-function MaxIcon({ size }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
-      <text x="12" y="16" textAnchor="middle" fill="black" fontSize="11" fontWeight="800" fontFamily="system-ui">MAX</text>
-    </svg>
-  );
-}
+import MaxIcon from "./MaxIcon";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
