@@ -95,9 +95,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
-          <p>© {new Date().getFullYear()} КвадроСервис. Все права защищены.</p>
-          <p>ИП Попов В.Н.</p>
+        <div className="mt-10 pt-6 border-t border-white/5">
+          <div className="text-xs text-white/30 space-y-0.5 mb-3 text-center sm:text-left">
+            <p>ИП Попов В.Н. | ИНН 235300220152</p>
+            <p className="text-white/20">
+              р/с 40802810530160000611 | БИК 040349602 | к/с 30101810100000000602
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
+            <p>© {new Date().getFullYear()} КвадроСервис. Все права защищены.</p>
+            <Link to="/privacy" className="hover:text-accent transition-colors">
+              Политика конфиденциальности
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

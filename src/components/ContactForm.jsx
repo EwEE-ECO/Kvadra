@@ -1,5 +1,6 @@
 ﻿import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Send, MapPin, Clock, Check } from "lucide-react";
 import MaxIcon from "./MaxIcon";
 import { addItem } from "../utils/db";
@@ -21,6 +22,7 @@ export default function ContactForm() {
     phone: "",
     message: "",
   });
+  const [agreed, setAgreed] = useState(false);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -28,6 +30,10 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
+    if (!agreed) {
+      setError("Необходимо согласие на обработку персональных данных");
+      return;
+    }
     setLoading(true);
     setError(false);
     addItem("leads", {
@@ -176,6 +182,21 @@ export default function ContactForm() {
                 {error && (
                   <p className="text-sm text-red-400 text-center">{typeof error === "string" ? error : "Ошибка отправки. Попробуйте позже."}</p>
                 )}
+                <label className="flex items-start gap-2.5 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={agreed}
+                    onChange={(e) => setAgreed(e.target.checked)}
+                    className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 accent-accent shrink-0"
+                    required
+                  />
+                  <span className="text-xs text-white/40 leading-relaxed">
+                    Нажимая кнопку, вы даёте{' '}
+                    <Link to="/privacy" className="text-accent hover:underline" target="_blank">
+                      согласие на обработку персональных данных
+                    </Link>
+                  </span>
+                </label>
                 <button
                   type="submit"
                   disabled={loading}
