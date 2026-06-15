@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, Check, MapPin, Star, Users, Briefcase, Award } from "lucide-react";
 
-const heroBg = "/hero-bg.jpg";
+const heroBg = `${import.meta.env.BASE_URL}hero-bg.jpg`;
 
 const statsData = [
   { value: "5000+", label: "довольных клиентов", icon: Users },
