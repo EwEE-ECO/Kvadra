@@ -58,7 +58,14 @@ const defaults = {
 export function getAll(name) {
   try {
     const data = localStorage.getItem(getKey(name));
-    if (data) return JSON.parse(data);
+    if (data) {
+      const parsed = JSON.parse(data);
+      if (name === "blog" && Array.isArray(parsed) && parsed.length && !parsed[0].image) {
+        setAll(name, defaults[name]);
+        return defaults[name];
+      }
+      return parsed;
+    }
     if (defaults[name]) {
       setAll(name, defaults[name]);
       return defaults[name];
