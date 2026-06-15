@@ -121,7 +121,7 @@ export default function ContactForm() {
                     onChange={(e) =>
                       setForm({ ...form, name: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-accent/50 transition-colors text-base"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-accent/50 transition-colors text-base"
                     placeholder="Иван Иванов"
                   />
                 </div>
@@ -138,7 +138,7 @@ export default function ContactForm() {
                     }
                     pattern="[\d\s\-\+\(\)]{7,20}"
                     title="Введите номер телефона (от 7 символов)"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-accent/50 transition-colors text-base"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-accent/50 transition-colors text-base"
                     placeholder="+7 (918) 123-45-67"
                   />
                 </div>
@@ -152,7 +152,7 @@ export default function ContactForm() {
                       setForm({ ...form, message: e.target.value })
                     }
                     rows={3}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-accent/50 transition-colors resize-none text-base"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-accent/50 transition-colors resize-none text-base"
                     placeholder="Опишите вашу проблему..."
                   />
                 </div>
