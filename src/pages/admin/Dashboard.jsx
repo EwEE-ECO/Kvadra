@@ -15,13 +15,23 @@ const sections = [
 export default function Dashboard() {
   const [counts, setCounts] = useState({});
 
-  useEffect(() => {
+  const refresh = () => {
     const data = {};
     sections.forEach((s) => {
       const items = getAll(s.key);
       data[s.key] = items ? items.length : 0;
     });
     setCounts(data);
+  };
+
+  useEffect(() => {
+    refresh();
+    window.addEventListener("lead-new", refresh);
+    window.addEventListener("storage", refresh);
+    return () => {
+      window.removeEventListener("lead-new", refresh);
+      window.removeEventListener("storage", refresh);
+    };
   }, []);
 
   return (

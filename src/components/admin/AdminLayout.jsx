@@ -1,6 +1,14 @@
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { LayoutDashboard, FileText, Wrench, Star, Image, DollarSign, Inbox, LogOut } from "lucide-react";
 import { logout } from "../../utils/auth";
+
+function getUnseenCount() {
+  const key = "ks_leads_last_count";
+  const leads = JSON.parse(localStorage.getItem("ks_leads") || "[]");
+  const viewed = parseInt(localStorage.getItem(key) || "0", 10);
+  return Math.max(0, leads.length - viewed);
+}
 
 const navItems = [
   { to: "/admin", label: "Дашборд", icon: LayoutDashboard },
@@ -14,6 +22,18 @@ const navItems = [
 
 export default function AdminLayout({ children }) {
   const { pathname } = useLocation();
+  const [unseen, setUnseen] = useState(getUnseenCount());
+
+  useEffect(() => {
+    const update = () => setUnseen(getUnseenCount());
+    update();
+    window.addEventListener("lead-new", update);
+    window.addEventListener("storage", update);
+    return () => {
+      window.removeEventListener("lead-new", update);
+      window.removeEventListener("storage", update);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex bg-gray-50">
@@ -40,6 +60,11 @@ export default function AdminLayout({ children }) {
               >
                 <Icon size={18} />
                 {item.label}
+                {item.to === "/admin/leads" && unseen > 0 && (
+                  <span className="ml-auto bg-red-500 text-white text-[10px] font-bold min-w-[18px] h-[18px] flex items-center justify-center rounded-full px-1">
+                    {unseen > 99 ? "99+" : unseen}
+                  </span>
+                )}
               </Link>
             );
           })}

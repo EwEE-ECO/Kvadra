@@ -25,6 +25,7 @@ export default function ContactForm() {
       message: form.message,
       date: new Date().toLocaleDateString("ru-RU"),
     });
+    window.dispatchEvent(new CustomEvent("lead-new", { detail: form }));
     await new Promise((r) => setTimeout(r, 1000));
     setSent(true);
     setForm({ name: "", phone: "", message: "" });
