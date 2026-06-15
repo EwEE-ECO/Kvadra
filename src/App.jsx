@@ -14,6 +14,7 @@ import ContactsPage from "./pages/ContactsPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/admin/LoginPage";
 import Dashboard from "./pages/admin/Dashboard";
@@ -39,6 +40,7 @@ function PublicLayout() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
