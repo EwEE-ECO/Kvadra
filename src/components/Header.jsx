@@ -38,7 +38,7 @@ export default function Header() {
               К
             </div>
             <span className="font-semibold text-lg tracking-tight hidden sm:block">
-              Квадра<span className="text-accent">Сервис</span>
+              Квадро<span className="text-accent">Сервис</span>
             </span>
           </Link>
 

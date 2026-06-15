@@ -25,7 +25,7 @@ export default function LoginPage() {
       >
         <div className="text-center">
           <div className="text-2xl font-bold mb-1">
-            Квадра<span className="text-accent">Сервис</span>
+            Квадро<span className="text-accent">Сервис</span>
           </div>
           <div className="text-sm text-white/40">Вход в админ-панель</div>
         </div>

@@ -20,7 +20,7 @@ export default function AdminLayout({ children }) {
       <aside className="w-64 bg-dark text-white shrink-0 hidden lg:flex flex-col">
         <div className="p-5 border-b border-white/10">
           <Link to="/" className="text-lg font-bold">
-            Квадра<span className="text-accent">Сервис</span>
+            Квадро<span className="text-accent">Сервис</span>
           </Link>
           <div className="text-xs text-white/40 mt-1">Админ-панель</div>
         </div>
@@ -58,7 +58,7 @@ export default function AdminLayout({ children }) {
       {/* Mobile top bar */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-dark text-white px-4 py-3 flex items-center justify-between">
         <div className="text-sm font-bold">
-          Квадра<span className="text-accent">Сервис</span>
+          Квадро<span className="text-accent">Сервис</span>
           <span className="text-white/40 ml-1 text-xs">Админка</span>
         </div>
         <div className="flex gap-2">

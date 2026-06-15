@@ -29,7 +29,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5 }}
             >
               <span className="text-accent text-sm font-semibold tracking-wider uppercase">О компании</span>
-              <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-6">КвадраСервис — ваш климат под контролем</h1>
+              <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-6">КвадроСервис — ваш климат под контролем</h1>
               <p className="text-white/50 leading-relaxed mb-4">
                 Мы — сервисный центр по ремонту и обслуживанию климатической техники в Краснодаре. 
                 Начиная с 2015 года, мы помогли более 5000 клиентам вернуть комфорт в свои дома и офисы.

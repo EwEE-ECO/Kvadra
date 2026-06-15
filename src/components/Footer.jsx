@@ -11,7 +11,7 @@ export default function Footer() {
                 К
               </div>
               <span className="font-semibold text-lg">
-                Квадра<span className="text-accent">Сервис</span>
+                Квадро<span className="text-accent">Сервис</span>
               </span>
             </div>
             <p className="text-sm text-white/50 leading-relaxed">
@@ -96,7 +96,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
-          <p>© {new Date().getFullYear()} КвадраСервис. Все права защищены.</p>
+          <p>© {new Date().getFullYear()} КвадроСервис. Все права защищены.</p>
           <p>ИП Попов В.Н.</p>
         </div>
       </div>
