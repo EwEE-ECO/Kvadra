@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, Star, Users, Briefcase, Award } from "lucide-react";
-import MaxIcon from "./MaxIcon";
+import { ArrowRight, Check, Phone, Star, Users, Briefcase, Award } from "lucide-react";
 
 const heroBg = `${import.meta.env.BASE_URL}hero-bg.jpg`;
 
@@ -99,7 +98,7 @@ export default function Hero() {
                   onClick={copyPhone}
                   className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl bg-white/5 text-white/70 font-medium text-sm hover:bg-white/10 hover:text-white transition-all border border-white/10 backdrop-blur-sm"
                 >
-                  <MaxIcon size={15} />
+                  <Phone size={15} />
                   +7 (995) 199-09-22
                 </button>
                 {copied && (
