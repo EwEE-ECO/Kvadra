@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Wind, Wrench, Search, Droplets, ArrowRight, Check, Star } from "lucide-react";
 
@@ -92,12 +93,13 @@ export default function ServicesPage() {
                   </ul>
                   <div className="flex items-center justify-between gap-3 flex-wrap">
                     <span className="text-xl font-bold text-accent">{service.price}</span>
-                    <a
-                      href="/#contact"
+                    <Link
+                      to="/"
+                      state={{ scrollTo: "contact" }}
                       className="inline-flex items-center gap-1.5 px-5 py-3 rounded-xl bg-accent text-dark font-semibold text-sm hover:bg-accent-hover transition-all"
                     >
                       Заказать <ArrowRight size={15} />
-                    </a>
+                    </Link>
                   </div>
                 </motion.div>
               );

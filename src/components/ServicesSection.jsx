@@ -73,9 +73,9 @@ export default function ServicesSection({ services }) {
                 <div className="text-sm font-semibold text-accent mb-4">
                   {service.price}
                 </div>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-dark/50 group-hover/link:text-accent transition-colors">
+                <span className="inline-flex items-center gap-1 text-sm font-medium text-dark/50 group-hover:text-accent transition-colors">
                   Подробнее
-                  <ArrowRight size={14} className="group-hover/link:translate-x-0.5 transition-transform" />
+                  <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                 </span>
               </motion.div>
               </Link>

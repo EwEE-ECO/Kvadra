@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, MapPin, Star, Users, Briefcase, Award } from "lucide-react";
+import { ArrowRight, Check, Star, Users, Briefcase, Award } from "lucide-react";
 import MaxIcon from "./MaxIcon";
 
 const heroBg = `${import.meta.env.BASE_URL}hero-bg.jpg`;
