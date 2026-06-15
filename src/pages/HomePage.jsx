@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import Seo from "../components/Seo";
 import Hero from "../components/Hero";
-import StatsBar from "../components/StatsBar";
 import ServicesSection from "../components/ServicesSection";
 import BrandsSection from "../components/BrandsSection";
 import WhyUs from "../components/WhyUs";
@@ -17,7 +16,6 @@ export default function HomePage() {
     <>
       <Seo />
       <Hero />
-      <StatsBar />
       <ServicesSection services={services} />
       <BrandsSection />
       <WhyUs />
