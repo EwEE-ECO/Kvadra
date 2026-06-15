@@ -33,12 +33,13 @@ export default function PortfolioPage() {
               className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-accent/20 transition-all flex flex-col overflow-hidden"
             >
               {project.image && (
-                <div className="relative aspect-video overflow-hidden bg-white/5">
+                <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-white/5 to-white/[0.02]">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    referrerPolicy="no-referrer"
                     onError={(e) => { e.target.style.display = "none"; }}
                   />
                 </div>
