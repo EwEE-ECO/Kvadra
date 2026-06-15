@@ -57,8 +57,8 @@ export default function PortfolioManager() {
               <input name="category" defaultValue={edit?.category} className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-accent" />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">URL изображения</label>
-              <input name="image" defaultValue={edit?.image} className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-accent" />
+              <label className="block text-sm font-medium mb-1">URL изображения (необязательно)</label>
+              <input name="image" defaultValue={edit?.image} placeholder="https://images.unsplash.com/..." className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-accent" />
             </div>
           </div>
           <div className="flex gap-2">

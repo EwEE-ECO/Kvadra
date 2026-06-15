@@ -30,13 +30,26 @@ export default function PortfolioPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-accent/20 transition-all flex flex-col"
+              className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-accent/20 transition-all flex flex-col overflow-hidden"
             >
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs text-white/30">{project.category || project.client || ""}</span>
+              {project.image && (
+                <div className="relative aspect-video overflow-hidden bg-white/5">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    onError={(e) => { e.target.style.display = "none"; }}
+                  />
+                </div>
+              )}
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs text-white/30">{project.category || project.client || ""}</span>
+                </div>
+                <h3 className="font-semibold mb-2">{project.title}</h3>
+                <p className="text-sm text-white/40 leading-relaxed mb-4 flex-1">{project.desc}</p>
               </div>
-              <h3 className="font-semibold mb-2">{project.title}</h3>
-              <p className="text-sm text-white/40 leading-relaxed mb-4 flex-1">{project.desc}</p>
             </motion.div>
           ))}
         </div>
