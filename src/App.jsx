@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingButtons from "./components/FloatingButtons";
+import CookieConsent from "./components/CookieConsent";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 import HomePage from "./pages/HomePage";
@@ -43,6 +44,7 @@ function PublicLayout() {
       </main>
       <Footer />
       <FloatingButtons />
+      <CookieConsent />
     </div>
   );
 }
