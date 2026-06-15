@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie } from "lucide-react";
 
@@ -31,7 +32,7 @@ export default function CookieConsent() {
               <div>
                 <p className="text-sm text-white/70 leading-relaxed">
                   Этот сайт использует cookie-файлы для обеспечения работоспособности и сбора аналитики. Продолжая использовать сайт, вы соглашаетесь с{" "}
-                  <a href="/#/about" className="text-accent hover:underline">обработкой персональных данных</a> в соответствии с Федеральным законом №&nbsp;152‑ФЗ.
+                  <Link to="/about" className="text-accent hover:underline">обработкой персональных данных</Link> в соответствии с Федеральным законом №&nbsp;152‑ФЗ.
                 </p>
               </div>
             </div>
