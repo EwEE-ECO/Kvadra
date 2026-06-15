@@ -38,8 +38,8 @@ export default function Hero() {
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-accent/4 blur-[150px]" />
       <div className="absolute bottom-1/4 -left-32 w-[400px] h-[400px] rounded-full bg-accent/3 blur-[100px]" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-32">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-16 items-center">
           {/* ═══ ЛЕВАЯ КОЛОНКА: заголовок + описание +++ ═══ */}
           <div className="lg:col-span-7">
             <motion.div

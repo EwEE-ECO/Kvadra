@@ -51,13 +51,13 @@ export default function StatsBar() {
           transition={{ duration: 0.6 }}
           className="bg-dark border border-white/10 rounded-2xl backdrop-blur-sm shadow-2xl shadow-accent/5 overflow-hidden"
         >
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-y divide-white/5 lg:divide-y-0 lg:divide-x">
             {stats.map((stat, i) => {
               const Icon = stat.icon;
               return (
                 <div
                   key={stat.label}
-                  className="flex items-center gap-4 p-6 sm:p-8"
+                  className="flex items-center gap-4 p-5 sm:p-8"
                 >
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
                     <Icon size={22} className="text-accent" />

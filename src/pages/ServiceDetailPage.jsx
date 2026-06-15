@@ -86,7 +86,7 @@ export default function ServiceDetailPage() {
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">{service.title}</h1>
           <p className="text-lg text-white/50 mb-8">{service.fullDesc}</p>
 
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-8">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 mb-8">
             <h2 className="text-xl font-semibold mb-4">Что входит в услугу</h2>
             <ul className="space-y-3">
               {service.features.map((f) => (

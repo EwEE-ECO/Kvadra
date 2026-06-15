@@ -66,7 +66,7 @@ export default function ServicesPage() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-accent/30 transition-all"
+                  className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-accent/30 transition-all"
                 >
                   {/* Бейдж "Популярно" */}
                   {service.popular && (
@@ -90,11 +90,11 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-3 flex-wrap">
                     <span className="text-xl font-bold text-accent">{service.price}</span>
                     <a
                       href="/#contact"
-                      className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-accent text-dark font-semibold text-sm hover:bg-accent-hover transition-all"
+                      className="inline-flex items-center gap-1.5 px-5 py-3 rounded-xl bg-accent text-dark font-semibold text-sm hover:bg-accent-hover transition-all"
                     >
                       Заказать <ArrowRight size={15} />
                     </a>

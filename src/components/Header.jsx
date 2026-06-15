@@ -67,14 +67,14 @@ export default function Header() {
                 key={l.href}
                 to={l.href}
                 onClick={() => setOpen(false)}
-                className="block px-3 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                className="block px-3 py-3 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
               >
                 {l.label}
               </Link>
             ))}
             <a
               href="tel:+79181638377"
-              className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-accent"
+              className="flex items-center gap-2 px-3 py-3 text-sm font-medium text-accent"
             >
               <Phone size={16} />
               +7 (918) 163-83-77
