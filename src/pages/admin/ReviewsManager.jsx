@@ -25,6 +25,7 @@ export default function ReviewsManager() {
     const form = new FormData(e.target);
     const data = Object.fromEntries(form);
     data.rating = parseInt(form.get("rating")) || 5;
+    data.date = data.date || new Date().toLocaleDateString("ru-RU");
     if (edit) {
       updateItem("reviews", edit.id, data);
     } else {
@@ -52,6 +53,10 @@ export default function ReviewsManager() {
             <div>
               <label className="block text-sm font-medium mb-1">Рейтинг (1-5)</label>
               <input name="rating" type="number" min="1" max="5" defaultValue={edit?.rating || 5} className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-accent" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Дата</label>
+              <input name="date" defaultValue={edit?.date} className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-accent" placeholder="10.06.2026 (авто)" />
             </div>
             <div className="sm:col-span-2">
               <label className="block text-sm font-medium mb-1">Текст отзыва</label>

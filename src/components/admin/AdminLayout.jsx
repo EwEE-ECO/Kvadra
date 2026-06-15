@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, FileText, Wrench, Star, Image, DollarSign, Inbox, LogOut } from "lucide-react";
+import { LayoutDashboard, FileText, Wrench, Star, Image, DollarSign, Inbox, LogOut, Menu, X } from "lucide-react";
 import { logout } from "../../utils/auth";
 
 function getUnseenCount() {
@@ -23,6 +23,7 @@ const navItems = [
 export default function AdminLayout({ children }) {
   const { pathname } = useLocation();
   const [unseen, setUnseen] = useState(getUnseenCount());
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const update = () => setUnseen(getUnseenCount());
@@ -71,7 +72,7 @@ export default function AdminLayout({ children }) {
         </nav>
         <div className="p-3 border-t border-white/10">
           <button
-            onClick={() => { logout(); window.location.hash = "#/admin/login"; }}
+            onClick={() => { logout(); }}
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-white/40 hover:text-white hover:bg-white/5 transition-colors w-full"
           >
             <LogOut size={18} />
@@ -82,15 +83,51 @@ export default function AdminLayout({ children }) {
 
       {/* Mobile top bar */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-dark text-white px-4 py-3 flex items-center justify-between">
-        <div className="text-sm font-bold">
-          Квадро<span className="text-accent">Сервис</span>
-          <span className="text-white/40 ml-1 text-xs">Админка</span>
+        <div className="flex items-center gap-3">
+          <button onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? "Закрыть меню" : "Открыть меню"} className="text-white/60 hover:text-white">
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+          <div className="text-sm font-bold">
+            Квадро<span className="text-accent">Сервис</span>
+            <span className="text-white/40 ml-1 text-xs">Админка</span>
+          </div>
         </div>
         <div className="flex gap-2">
           <Link to="/" className="text-xs text-white/40 hover:text-white px-2 py-1">На сайт</Link>
-          <button onClick={() => { logout(); window.location.hash = "#/admin/login"; }} className="text-xs text-white/40 hover:text-white px-2 py-1">Выйти</button>
+          <button onClick={() => { logout(); }} className="text-xs text-white/40 hover:text-white px-2 py-1">Выйти</button>
         </div>
       </div>
+
+      {mobileOpen && (
+        <div className="lg:hidden fixed top-[52px] left-0 right-0 z-50 bg-dark/98 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+          <nav className="p-3 space-y-1">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const active = pathname === item.to;
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setMobileOpen(false)}
+                  className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm transition-colors ${
+                    active
+                      ? "bg-accent text-dark font-semibold"
+                      : "text-white/60 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  <Icon size={18} />
+                  {item.label}
+                  {item.to === "/admin/leads" && unseen > 0 && (
+                    <span className="ml-auto bg-red-500 text-white text-[10px] font-bold min-w-[18px] h-[18px] flex items-center justify-center rounded-full px-1">
+                      {unseen > 99 ? "99+" : unseen}
+                    </span>
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      )}
 
       <div className="flex-1 lg:pl-0 pt-14 lg:pt-0 text-gray-900">
         <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">

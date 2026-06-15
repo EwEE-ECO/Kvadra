@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import AdminLayout from "../../components/admin/AdminLayout";
 import { getAll, deleteItem } from "../../utils/db";
-import { playNotificationSound } from "../../utils/notify";
+import { playNotificationSound, markLeadsViewed } from "../../utils/notify";
 import { Trash2, Phone, User, MessageSquare, Calendar, Bell } from "lucide-react";
 
 export default function LeadsManager() {
@@ -11,6 +11,7 @@ export default function LeadsManager() {
   useEffect(() => {
     const data = getAll("leads");
     if (data) setItems(data);
+    markLeadsViewed();
   }, []);
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight, Check, Star, Users, Briefcase, Award } from "lucide-react";
 import MaxIcon from "./MaxIcon";
 
@@ -84,13 +85,14 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.35 }}
               className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mt-8"
             >
-              <a
-                href="#contact"
+              <Link
+                to="/"
+                state={{ scrollTo: "contact" }}
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-accent text-dark font-semibold text-sm hover:bg-accent-hover transition-all shadow-lg shadow-accent/25"
               >
                 Оставить заявку
                 <ArrowRight size={16} />
-              </a>
+              </Link>
 
               <div className="relative">
                 <button
