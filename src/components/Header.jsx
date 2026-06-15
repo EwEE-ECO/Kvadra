@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
-import MaxIcon from "./MaxIcon";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 
 const serviceSubmenu = [
   {
@@ -99,7 +98,7 @@ export default function Header() {
               href="tel:+79951990922"
               className="hidden sm:flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
             >
-              <MaxIcon size={16} />
+              <Phone size={16} />
               +7 (995) 199-09-22
             </a>
             <button
@@ -170,7 +169,7 @@ export default function Header() {
               href="tel:+79951990922"
               className="flex items-center gap-2 px-3 py-3 text-sm font-medium text-accent"
             >
-              <MaxIcon size={16} />
+              <Phone size={16} />
               +7 (995) 199-09-22
             </a>
           </div>
