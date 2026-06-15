@@ -45,7 +45,7 @@ export default function ContactsPage() {
 
           <div className="rounded-2xl overflow-hidden border border-white/10">
             <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=38.987555%2C45.044945&z=16&mode=search&text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%A0%D0%BE%D1%81%D1%82%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%2030%2F7"
+              src="https://yandex.ru/map-widget/v1/?ll=39.000133%2C45.100286&z=16&mode=search&text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%A0%D0%BE%D1%81%D1%82%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%2030%2F7"
               width="100%"
               height="400"
               style={{ border: 0 }}
