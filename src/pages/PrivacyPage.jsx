@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
+import Seo from "../components/Seo";
 
 export default function PrivacyPage() {
   return (
     <section className="py-20 sm:py-28 bg-dark">
+      <Seo title="Политика конфиденциальности" noIndex />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

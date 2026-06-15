@@ -1,0 +1,19 @@
+{
+  "name": "КвадроСервис — Сервисный центр климатической техники",
+  "short_name": "КвадроСервис",
+  "description": "Ремонт, чистка, диагностика и заправка кондиционеров в Краснодаре.",
+  "start_url": "/Kvadra/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#39FF14",
+  "icons": [
+    {
+      "src": "/Kvadra/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "lang": "ru",
+  "orientation": "portrait-primary"
+}

@@ -4,6 +4,17 @@ import { Send, MapPin, Clock, Check } from "lucide-react";
 import MaxIcon from "./MaxIcon";
 import { addItem } from "../utils/db";
 
+function formatPhone(value) {
+  const d = value.replace(/\D/g, "").slice(0, 11);
+  if (!d) return "";
+  let r = d[0] === "8" ? "8" : "+7";
+  if (d.length > 1) r += " (" + d.slice(1, 4);
+  if (d.length >= 5) r += ") " + d.slice(4, 7);
+  if (d.length >= 8) r += "-" + d.slice(7, 9);
+  if (d.length >= 10) r += "-" + d.slice(9, 11);
+  return r;
+}
+
 export default function ContactForm() {
   const [form, setForm] = useState({
     name: "",
@@ -142,12 +153,10 @@ export default function ContactForm() {
                     type="tel"
                     value={form.phone}
                     onChange={(e) =>
-                      setForm({ ...form, phone: e.target.value })
+                      setForm({ ...form, phone: formatPhone(e.target.value) })
                     }
-                    pattern="[\d\s\-\+\(\)]{7,20}"
-                    title="Введите номер телефона (от 7 символов)"
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-accent/50 transition-colors text-base"
-                    placeholder="+7 (918) 123-45-67"
+                    placeholder="+7 (999) 123-45-67"
                   />
                 </div>
                 <div>

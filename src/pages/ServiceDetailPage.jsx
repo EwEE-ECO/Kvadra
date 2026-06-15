@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Check } from "lucide-react";
+import Seo from "../components/Seo";
 import { getAll } from "../utils/db";
 
 export default function ServiceDetailPage() {
@@ -14,6 +15,7 @@ export default function ServiceDetailPage() {
   if (!service) {
     return (
       <section className="py-20">
+        <Seo title="Страница не найдена" noIndex />
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-3xl font-bold mb-4">Услуга не найдена</h1>
           <Link to="/services" className="text-accent hover:underline">← Вернуться к услугам</Link>
@@ -24,6 +26,7 @@ export default function ServiceDetailPage() {
 
   return (
     <section className="py-20 sm:py-28 bg-dark">
+      <Seo title={service.title} description={service.shortDesc || service.desc} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

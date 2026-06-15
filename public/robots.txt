@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ewee-eco.github.io/Kvadra/sitemap.xml

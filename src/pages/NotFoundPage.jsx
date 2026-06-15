@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Seo from "../components/Seo";
 
 export default function NotFoundPage() {
   return (
     <section className="py-20 sm:py-28 bg-dark min-h-[60vh] flex items-center">
+      <Seo title="Страница не найдена" noIndex />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

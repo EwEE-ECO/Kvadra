@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Heart, Users, Award, Target, Zap } from "lucide-react";
+import Seo from "../components/Seo";
 
 const stats = [
   { value: "10+", label: "лет на рынке" },
@@ -20,6 +21,7 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <Seo title="О нас" description="Более 10 лет ремонтируем и обслуживаем кондиционеры в Краснодаре. Сертифицированные мастера, гарантия до 2 лет." />
       <section className="py-20 sm:py-28 bg-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">

@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import Seo from "../components/Seo";
 import Hero from "../components/Hero";
 import StatsBar from "../components/StatsBar";
 import ServicesSection from "../components/ServicesSection";
@@ -14,6 +15,7 @@ export default function HomePage() {
 
   return (
     <>
+      <Seo />
       <Hero />
       <StatsBar />
       <ServicesSection services={services} />

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
+import Seo from "../components/Seo";
 import ContactForm from "../components/ContactForm";
 
 export default function ContactsPage() {
   return (
     <>
+      <Seo title="Контакты" description="Свяжитесь с нами в Краснодаре по телефону +7 (995) 199-09-22 или через форму обратной связи." />
       <section className="py-20 sm:py-28 bg-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

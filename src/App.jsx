@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingButtons from "./components/FloatingButtons";
 import CookieConsent from "./components/CookieConsent";
+import ScrollToTop from "./components/ScrollToTop";
+import JsonLd from "./components/JsonLd";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 import HomePage from "./pages/HomePage";
@@ -28,6 +30,7 @@ import LeadsManager from "./pages/admin/LeadsManager";
 function PublicLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-dark text-white font-sans antialiased">
+      <JsonLd />
       <Header />
       <main className="flex-1">
         <Routes>
@@ -44,6 +47,7 @@ function PublicLayout() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
+      <ScrollToTop />
       <Footer />
       <FloatingButtons />
       <CookieConsent />
