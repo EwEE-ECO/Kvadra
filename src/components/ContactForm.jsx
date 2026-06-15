@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Send, MapPin, Clock, Check } from "lucide-react";
 import MaxIcon from "./MaxIcon";
+import { addItem } from "../utils/db";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -18,7 +19,12 @@ export default function ContactForm() {
     if (loading) return;
     setLoading(true);
     setError(false);
-    // Simulate API call
+    addItem("leads", {
+      name: form.name,
+      phone: form.phone,
+      message: form.message,
+      date: new Date().toLocaleDateString("ru-RU"),
+    });
     await new Promise((r) => setTimeout(r, 1000));
     setSent(true);
     setForm({ name: "", phone: "", message: "" });
