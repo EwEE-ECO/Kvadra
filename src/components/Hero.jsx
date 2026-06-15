@@ -84,7 +84,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mt-8"
             >
               <a
-                href="/#contact"
+                href="#contact"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-accent text-dark font-semibold text-sm hover:bg-accent-hover transition-all shadow-lg shadow-accent/25"
               >
                 Оставить заявку

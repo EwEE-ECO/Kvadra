@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Wind, Wrench, Search, Droplets, ArrowRight, Star } from "lucide-react";
 
@@ -72,13 +73,13 @@ export default function ServicesSection({ services }) {
                 <div className="text-sm font-semibold text-accent mb-4">
                   {service.price}
                 </div>
-                <a
-                  href={`/services/${service.slug}`}
+                <Link
+                  to={`/services/${service.slug}`}
                   className="inline-flex items-center gap-1 text-sm font-medium text-dark/50 hover:text-accent transition-colors group/link"
                 >
                   Подробнее
                   <ArrowRight size={14} className="group-hover/link:translate-x-0.5 transition-transform" />
-                </a>
+                </Link>
               </motion.div>
             );
           })}

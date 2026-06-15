@@ -34,7 +34,7 @@ export default function SmoothScrollProvider({ children }) {
       if (!href) return;
 
       // Проверяем, что это хэш-ссылка: #section или /#section
-      const match = href.match(/^\/?#(.+)$/);
+      const match = href.match(/^\/?#(.+)$/) || href.match(/^#(.+)$/);
       if (!match) return;
 
       e.preventDefault();

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-dark border-t border-white/5">
@@ -28,12 +30,12 @@ export default function Footer() {
                 { href: "/services/refill", label: "Заправка" },
               ].map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="text-sm text-white/50 hover:text-accent transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -51,12 +53,12 @@ export default function Footer() {
                 { href: "/contacts", label: "Контакты" },
               ].map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="text-sm text-white/50 hover:text-accent transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
 
@@ -67,12 +68,12 @@ export default function BlogPage() {
               </div>
               <h2 className="text-lg font-semibold mb-2">{post.title}</h2>
               <p className="text-sm text-white/40 leading-relaxed mb-4">{post.excerpt}</p>
-              <a
-                href={`/blog/${post.slug}`}
+              <Link
+                to={`/blog/${post.slug}`}
                 className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
               >
                 Читать далее <ArrowRight size={14} />
-              </a>
+              </Link>
             </motion.article>
           ))}
         </div>
