@@ -1,39 +1,12 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
-
-const posts = [
-  {
-    title: "Как часто нужно чистить кондиционер?",
-    excerpt: "Регулярная чистка кондиционера — залог его долгой и эффективной работы. Рассказываем, как часто нужно проводить обслуживание и почему это важно.",
-    date: "10.06.2026",
-    slug: "how-often-to-clean-ac",
-    category: "Обслуживание",
-  },
-  {
-    title: "Признаки утечки фреона в кондиционере",
-    excerpt: "Как понять, что в кондиционере упал уровень хладагента? Разбираем основные признаки утечки фреона и что делать в такой ситуации.",
-    date: "25.05.2026",
-    slug: "freon-leak-signs",
-    category: "Ремонт",
-  },
-  {
-    title: "Выбираем кондиционер для квартиры",
-    excerpt: "На что обратить внимание при выборе сплит-системы? Поможем разобраться в типах, мощностях и функциях современных кондиционеров.",
-    date: "15.05.2026",
-    slug: "choose-ac-for-apartment",
-    category: "Советы",
-  },
-  {
-    title: "Подготовка кондиционера к летнему сезону",
-    excerpt: "Как подготовить сплит-систему к жаркому сезону? Пошаговая инструкция по проверке и обслуживанию кондиционера перед летом.",
-    date: "01.05.2026",
-    slug: "prepare-ac-for-summer",
-    category: "Обслуживание",
-  },
-];
+import { getAll } from "../utils/db";
 
 export default function BlogPage() {
+  const posts = useMemo(() => getAll("blog") || [], []);
+
   return (
     <section className="py-20 sm:py-28 bg-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +26,7 @@ export default function BlogPage() {
         <div className="grid sm:grid-cols-2 gap-6">
           {posts.map((post, i) => (
             <motion.article
-              key={post.slug}
+              key={post.slug || post.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}

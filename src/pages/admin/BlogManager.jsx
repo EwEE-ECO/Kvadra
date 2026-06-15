@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import AdminLayout from "../../components/admin/AdminLayout";
-import { getAll, addItem, updateItem, deleteItem } from "../../utils/db";
+import { getAll, addItem, updateItem, deleteItem, seedData } from "../../utils/db";
 import { Plus, Pencil, Trash2 } from "lucide-react";
 
 const emptyItem = { title: "", excerpt: "", content: "", date: "", slug: "", category: "" };
