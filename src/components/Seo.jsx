@@ -4,7 +4,7 @@ const siteName = "КвадроСервис";
 const siteUrl = "https://ewee-eco.github.io/Kvadra/";
 const defaultTitle = "КвадроСервис — Сервисный центр климатической техники";
 const defaultDesc = "Ремонт, чистка, диагностика и заправка кондиционеров в Краснодаре. Выезд мастера в день обращения. Гарантия до 2 лет.";
-const ogImage = `${import.meta.env.BASE_URL}og-image.jpg`;
+const ogImage = `${import.meta.env.BASE_URL}og-image.svg`;
 
 export default function Seo({ title, description, ogImage: customImage, noIndex }) {
   const fullTitle = title ? `${title} | ${siteName}` : defaultTitle;

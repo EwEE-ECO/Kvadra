@@ -3,8 +3,6 @@ import AdminLayout from "../../components/admin/AdminLayout";
 import { getAll, addItem, updateItem, deleteItem } from "../../utils/db";
 import { Plus, Pencil, Trash2 } from "lucide-react";
 
-const emptyItem = { title: "", desc: "", shortDesc: "", price: "", slug: "", popular: false, icon: "Wrench", features: [] };
-
 export default function ServicesManager() {
   const [items, setItems] = useState([]);
   const [edit, setEdit] = useState(null);

@@ -5,7 +5,7 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "КвадроСервис",
-    image: `${import.meta.env.BASE_URL}og-image.jpg`,
+    image: `${import.meta.env.BASE_URL}og-image.svg`,
     url: "https://ewee-eco.github.io/Kvadra/",
     telephone: "+79951990922",
     email: "info@kvadraservice.ru",

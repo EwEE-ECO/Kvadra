@@ -61,7 +61,7 @@ export default function BlogPostPage() {
           <h1 className="text-3xl sm:text-4xl font-bold mb-6">{post.title}</h1>
 
           <div className="prose prose-invert max-w-none">
-            {post.content.split("\n").map((p, i) => {
+            {(post.content || "").split("\n").map((p, i) => {
               if (p.startsWith("•")) {
                 return <li key={i} className="text-white/70 ml-4 mb-1">{p.slice(1).trim()}</li>;
               }

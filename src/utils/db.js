@@ -60,9 +60,17 @@ export function getAll(name) {
     const data = localStorage.getItem(getKey(name));
     if (data) {
       const parsed = JSON.parse(data);
-      if (name === "blog" && Array.isArray(parsed) && parsed.length && !parsed[0].image) {
-        setAll(name, defaults[name]);
-        return defaults[name];
+      if (name === "blog" && Array.isArray(parsed)) {
+        const defaultsMap = {};
+        (defaults.blog || []).forEach((d) => { defaultsMap[d.id] = d; });
+        const migrated = parsed.map((item) => {
+          const def = defaultsMap[item.id];
+          if (!def) return item;
+          const merged = { ...def, ...item };
+          return merged;
+        });
+        setAll(name, migrated);
+        return migrated;
       }
       return parsed;
     }
