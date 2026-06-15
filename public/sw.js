@@ -1,4 +1,4 @@
-const CACHE = "kvadra-v1";
+const CACHE = "kvadra-v2";
 const SHELL = [
   "/Kvadra/",
   "/Kvadra/index.html",
