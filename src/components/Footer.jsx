@@ -69,13 +69,13 @@ export default function Footer() {
               Контакты
             </h4>
             <ul className="space-y-2.5 text-sm text-white/50">
-              <li>г. Краснодар, ул. Ростовское шоссе, д. 30/7</li>
+              <li>г. Краснодар, ул. Ростовское шоссе, д. 30/7, к. 2</li>
               <li>
                 <a
-                  href="tel:+79181638377"
+                  href="tel:+79951990922"
                   className="hover:text-accent transition-colors"
                 >
-                  +7 (918) 163-83-77
+                  +7 (995) 199-09-22
                 </a>
               </li>
               <li>

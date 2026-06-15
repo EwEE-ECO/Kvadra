@@ -45,8 +45,8 @@ export default function ServicesSection({ services }) {
           {items.map((service, i) => {
             const Icon = iconMap[service.icon] || Wrench;
             return (
+              <Link key={service.id} to={`/services/${service.slug}`}>
               <motion.div
-                key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -73,14 +73,12 @@ export default function ServicesSection({ services }) {
                 <div className="text-sm font-semibold text-accent mb-4">
                   {service.price}
                 </div>
-                <Link
-                  to={`/services/${service.slug}`}
-                  className="inline-flex items-center gap-1 text-sm font-medium text-dark/50 hover:text-accent transition-colors group/link"
-                >
+                <span className="inline-flex items-center gap-1 text-sm font-medium text-dark/50 group-hover/link:text-accent transition-colors">
                   Подробнее
                   <ArrowRight size={14} className="group-hover/link:translate-x-0.5 transition-transform" />
-                </Link>
+                </span>
               </motion.div>
+              </Link>
             );
           })}
         </div>

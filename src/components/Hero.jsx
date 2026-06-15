@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, Check, MapPin, Star, Users, Briefcase, Award } from "lucide-react";
+import { ArrowRight, Check, MapPin, Star, Users, Briefcase, Award } from "lucide-react";
+
+function MaxIcon({ size }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
+      <text x="12" y="16" textAnchor="middle" fill="black" fontSize="11" fontWeight="800" fontFamily="system-ui">MAX</text>
+    </svg>
+  );
+}
 
 const heroBg = `${import.meta.env.BASE_URL}hero-bg.jpg`;
 
@@ -15,7 +24,7 @@ export default function Hero() {
 
   const copyPhone = () => {
     try {
-      navigator.clipboard.writeText("+79181638377");
+      navigator.clipboard.writeText("+79951990922");
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {}
@@ -96,8 +105,8 @@ export default function Hero() {
                   onClick={copyPhone}
                   className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl bg-white/5 text-white/70 font-medium text-sm hover:bg-white/10 hover:text-white transition-all border border-white/10 backdrop-blur-sm"
                 >
-                  <Phone size={15} />
-                  +7 (918) 163-83-77
+                  <MaxIcon size={15} />
+                  +7 (995) 199-09-22
                 </button>
                 {copied && (
                   <span className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-accent text-dark text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-lg">

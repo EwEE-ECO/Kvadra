@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Phone, MapPin, Clock, Check } from "lucide-react";
+import { Send, MapPin, Clock, Check } from "lucide-react";
+
+function MaxIcon({ size }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
+      <text x="12" y="16" textAnchor="middle" fill="black" fontSize="11" fontWeight="800" fontFamily="system-ui">MAX</text>
+    </svg>
+  );
+}
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -47,15 +56,15 @@ export default function ContactForm() {
             <div className="space-y-5">
               {[
                 {
-                  icon: Phone,
-                  label: "Позвоните нам",
-                  value: "+7 (918) 163-83-77",
-                  href: "tel:+79181638377",
+                  icon: MaxIcon,
+                  label: "Напишите нам в MAX",
+                  value: "+7 (995) 199-09-22",
+                  href: "https://max.ru/",
                 },
                 {
                   icon: MapPin,
                   label: "Наш адрес",
-                  value: "г. Краснодар, ул. Ростовское шоссе, д. 30/7",
+                  value: "г. Краснодар, ул. Ростовское шоссе, д. 30/7, к. 2",
                 },
                 {
                   icon: Clock,

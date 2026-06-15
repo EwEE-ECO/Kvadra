@@ -20,9 +20,9 @@ export default function ContactsPage() {
 
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {[
-              { label: "Телефон", value: "+7 (918) 163-83-77", href: "tel:+79181638377" },
+              { label: "Телефон", value: "+7 (995) 199-09-22", href: "tel:+79951990922" },
               { label: "Email", value: "info@kvadraservice.ru", href: "mailto:info@kvadraservice.ru" },
-              { label: "Адрес", value: "г. Краснодар, ул. Ростовское шоссе, д. 30/7" },
+              { label: "Адрес", value: "г. Краснодар, ул. Ростовское шоссе, д. 30/7, к. 2" },
             ].map((item) => (
               <motion.div
                 key={item.label}
@@ -45,7 +45,7 @@ export default function ContactsPage() {
 
           <div className="rounded-2xl overflow-hidden border border-white/10">
             <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=39.000133%2C45.100286&z=16&mode=search&text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%A0%D0%BE%D1%81%D1%82%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%2030%2F7"
+              src="https://yandex.ru/map-widget/v1/?ll=39.000133%2C45.100286&z=16&pt=39.000133%2C45.100286%2Cpm2rdl&mode=whatshere&text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%A0%D0%BE%D1%81%D1%82%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%2030%2F7%2C%20%D0%BA.%202"
               width="100%"
               height="400"
               style={{ border: 0 }}
