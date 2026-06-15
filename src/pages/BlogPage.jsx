@@ -32,8 +32,21 @@ export default function BlogPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-accent/20 transition-all"
+              className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-accent/20 transition-all overflow-hidden"
             >
+              {post.image && (
+                <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-white/5 to-white/[0.02]">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => { e.target.style.display = "none"; }}
+                  />
+                </div>
+              )}
+              <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">{post.category}</span>
                 <span className="text-xs text-white/30 flex items-center gap-1">
@@ -49,6 +62,7 @@ export default function BlogPage() {
               >
                 Читать далее <ArrowRight size={14} />
               </Link>
+              </div>
             </motion.article>
           ))}
         </div>

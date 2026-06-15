@@ -45,6 +45,19 @@ export default function BlogPostPage() {
             </span>
           </div>
 
+          {post.image && (
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-white/5 to-white/[0.02] mb-8">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+                onError={(e) => { e.target.style.display = "none"; }}
+              />
+            </div>
+          )}
+
           <h1 className="text-3xl sm:text-4xl font-bold mb-6">{post.title}</h1>
 
           <div className="prose prose-invert max-w-none">
