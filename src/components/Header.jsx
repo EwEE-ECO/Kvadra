@@ -11,8 +11,7 @@ const serviceSubmenu = [
       { href: "/services/repair", label: "Бытовые сплит-системы" },
     ],
   },
-  { href: "/services/cleaning", label: "Чистка кондиционеров" },
-  { href: "/services/maintenance", label: "Обслуживание сплит-систем" },
+  { href: "/services/maintenance", label: "Обслуживание" },
 ];
 
 const links = [

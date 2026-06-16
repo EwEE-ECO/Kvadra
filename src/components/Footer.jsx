@@ -24,10 +24,10 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-white/80 mb-4">Услуги</h4>
             <ul className="space-y-2.5">
               {[
-                { href: "/services/cleaning", label: "Чистка" },
                 { href: "/services/repair", label: "Ремонт" },
                 { href: "/services/diagnostics", label: "Диагностика" },
                 { href: "/services/refill", label: "Заправка" },
+                { href: "/services/maintenance", label: "Обслуживание" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link

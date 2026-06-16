@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Wind, Wrench, Search, Droplets, ArrowRight, Star } from "lucide-react";
+import { Wrench, Search, Droplets, ArrowRight, Star } from "lucide-react";
 
 const iconMap = {
-  Wind: Wind,
   Wrench: Wrench,
   Search: Search,
   Droplets: Droplets,
 };
 
 const defaultServices = [
-  { id: "1", icon: "Wind", title: "Чистка кондиционеров", shortDesc: "Глубокая очистка внутренних и наружных блоков. Удаление пыли, грязи, плесени и неприятных запахов.", price: "от 1 500 ₽", slug: "cleaning", popular: true },
   { id: "2", icon: "Wrench", title: "Ремонт кондиционеров", shortDesc: "Быстрый и качественный ремонт сплит-систем всех брендов. Замена компрессоров, вентиляторов, плат управления.", price: "от 2 000 ₽", slug: "repair", popular: false },
   { id: "3", icon: "Search", title: "Диагностика", shortDesc: "Полная диагностика системы кондиционирования. Выявление неисправностей с помощью профессионального оборудования.", price: "от 500 ₽", slug: "diagnostics", popular: false },
   { id: "4", icon: "Droplets", title: "Заправка фреоном", shortDesc: "Проверка давления, поиск утечек, дозаправка или полная заправка кондиционера фреоном.", price: "от 2 500 ₽", slug: "refill", popular: true },
