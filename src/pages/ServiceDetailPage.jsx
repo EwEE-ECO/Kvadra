@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Check } from "lucide-react";
 import Seo from "../components/Seo";
+import BreadcrumbJsonLd from "../components/BreadcrumbJsonLd";
 import { getAll } from "../utils/db";
 
 export default function ServiceDetailPage() {
@@ -27,6 +28,11 @@ export default function ServiceDetailPage() {
   return (
     <section className="py-20 sm:py-28 bg-dark">
       <Seo title={service.title} description={service.shortDesc || service.desc} />
+      <BreadcrumbJsonLd items={[
+        { name: "Главная", url: "https://ewee-eco.github.io/Kvadra/" },
+        { name: "Услуги", url: "https://ewee-eco.github.io/Kvadra/#/services" },
+        { name: service.title, url: `https://ewee-eco.github.io/Kvadra/#/services/${service.slug}` },
+      ]} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

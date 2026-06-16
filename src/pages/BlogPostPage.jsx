@@ -1,8 +1,10 @@
 import { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar } from "lucide-react";
 import Seo from "../components/Seo";
+import BreadcrumbJsonLd from "../components/BreadcrumbJsonLd";
 import { getAll } from "../utils/db";
 
 export default function BlogPostPage() {
@@ -27,6 +29,23 @@ export default function BlogPostPage() {
   return (
     <section className="py-20 sm:py-28 bg-dark">
       <Seo title={post.title} description={post.excerpt} />
+      <BreadcrumbJsonLd items={[
+        { name: "Главная", url: "https://ewee-eco.github.io/Kvadra/" },
+        { name: "Блог", url: "https://ewee-eco.github.io/Kvadra/#/blog" },
+        { name: post.title, url: `https://ewee-eco.github.io/Kvadra/#/blog/${post.slug}` },
+      ]} />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: post.title,
+          description: post.excerpt,
+          image: post.image,
+          datePublished: post.date,
+          author: { "@type": "Person", name: "КвадроСервис" },
+          publisher: { "@type": "Organization", name: "КвадроСервис" },
+        })}</script>
+      </Helmet>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

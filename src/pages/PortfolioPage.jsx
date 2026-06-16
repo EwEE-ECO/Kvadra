@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import Seo from "../components/Seo";
+import BreadcrumbJsonLd from "../components/BreadcrumbJsonLd";
 import { getAll } from "../utils/db";
 
 export default function PortfolioPage() {
@@ -9,6 +10,10 @@ export default function PortfolioPage() {
   return (
     <section className="py-20 sm:py-28 bg-dark">
       <Seo title="Портфолио" description="Реальные проекты по ремонту, монтажу и обслуживанию кондиционеров в Краснодаре." />
+      <BreadcrumbJsonLd items={[
+        { name: "Главная", url: "https://ewee-eco.github.io/Kvadra/" },
+        { name: "Портфолио", url: "https://ewee-eco.github.io/Kvadra/#/portfolio" },
+      ]} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

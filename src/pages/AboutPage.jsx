@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, Heart, Users, Award, Target, Zap } from "lucide-react";
 import Seo from "../components/Seo";
+import BreadcrumbJsonLd from "../components/BreadcrumbJsonLd";
 
 const stats = [
   { value: "10+", label: "лет на рынке" },
@@ -22,6 +23,10 @@ export default function AboutPage() {
   return (
     <>
       <Seo title="О нас" description="Более 10 лет ремонтируем и обслуживаем кондиционеры в Краснодаре. Сертифицированные мастера, гарантия до 2 лет." />
+      <BreadcrumbJsonLd items={[
+        { name: "Главная", url: "https://ewee-eco.github.io/Kvadra/" },
+        { name: "О нас", url: "https://ewee-eco.github.io/Kvadra/#/about" },
+      ]} />
       <section className="py-20 sm:py-28 bg-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
