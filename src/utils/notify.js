@@ -16,7 +16,7 @@ export function playNotificationSound() {
   }
 }
 
-export function notifyNewLead(lead) {
+export function notifyNewLead() {
   const key = "ks_leads_last_count";
   const prev = parseInt(localStorage.getItem(key) || "0", 10);
   const leads = JSON.parse(localStorage.getItem("ks_leads") || "[]");

@@ -29,7 +29,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => { setOpen(false); // eslint-disable-line react-hooks/set-state-in-effect
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 bg-dark/95 backdrop-blur-sm border-b border-white/5">

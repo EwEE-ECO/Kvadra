@@ -13,7 +13,7 @@ export default function SmoothScrollProvider({ children }) {
       return () => clearTimeout(timer);
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [pathname]);
+  }, [pathname, state?.scrollTo]);
 
   useEffect(() => {
     const handleClick = (e) => {

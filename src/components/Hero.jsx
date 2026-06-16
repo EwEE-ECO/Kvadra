@@ -19,7 +19,9 @@ export default function Hero() {
       navigator.clipboard.writeText("+79951990922");
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch {}
+    } catch {
+      /* clipboard not available */
+    }
   };
 
   return (
@@ -119,7 +121,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="space-y-4"
             >
-              {statsData.map((stat, i) => {
+              {statsData.map((stat) => {
                 const Icon = stat.icon;
                 return (
                   <div

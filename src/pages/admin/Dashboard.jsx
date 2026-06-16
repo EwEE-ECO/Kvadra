@@ -13,19 +13,24 @@ const sections = [
 ];
 
 export default function Dashboard() {
-  const [counts, setCounts] = useState({});
-
-  const refresh = () => {
+  const [counts, setCounts] = useState(() => {
     const data = {};
     sections.forEach((s) => {
       const items = getAll(s.key);
       data[s.key] = items ? items.length : 0;
     });
-    setCounts(data);
-  };
+    return data;
+  });
 
   useEffect(() => {
-    refresh();
+    const refresh = () => {
+      const data = {};
+      sections.forEach((s) => {
+        const items = getAll(s.key);
+        data[s.key] = items ? items.length : 0;
+      });
+      setCounts(data);
+    };
     window.addEventListener("lead-new", refresh);
     window.addEventListener("storage", refresh);
     return () => {

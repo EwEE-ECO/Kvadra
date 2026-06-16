@@ -1,17 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AdminLayout from "../../components/admin/AdminLayout";
 import { getAll, addItem, updateItem, deleteItem } from "../../utils/db";
 import { Plus, Pencil, Trash2, Star } from "lucide-react";
 
 export default function ReviewsManager() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(() => getAll("reviews") || []);
   const [edit, setEdit] = useState(null);
   const [showForm, setShowForm] = useState(false);
-
-  useEffect(() => {
-    const data = getAll("reviews");
-    if (data) setItems(data);
-  }, []);
 
   const refresh = () => {
     const data = getAll("reviews");

@@ -5,14 +5,12 @@ import { playNotificationSound, markLeadsViewed } from "../../utils/notify";
 import { Trash2, Phone, User, MessageSquare, Calendar, Bell } from "lucide-react";
 
 export default function LeadsManager() {
-  const [items, setItems] = useState([]);
-  const [toast, setToast] = useState(null);
-
-  useEffect(() => {
+  const [items, setItems] = useState(() => {
     const data = getAll("leads");
-    if (data) setItems(data);
     markLeadsViewed();
-  }, []);
+    return data || [];
+  });
+  const [toast, setToast] = useState(null);
 
   useEffect(() => {
     const handler = (e) => {
@@ -56,7 +54,7 @@ export default function LeadsManager() {
         </div>
       ) : (
         <div className="space-y-3">
-          {items.map((item, idx) => (
+          {items.map((item) => (
             <div key={item.id} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-2 flex-1">

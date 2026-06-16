@@ -1,15 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie } from "lucide-react";
 
 export default function CookieConsent() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem("ks_cookie_consent");
-    if (!consent) setVisible(true);
-  }, []);
+  const [visible, setVisible] = useState(() => !localStorage.getItem("ks_cookie_consent"));
 
   const accept = () => {
     localStorage.setItem("ks_cookie_consent", "1");

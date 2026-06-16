@@ -1,17 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AdminLayout from "../../components/admin/AdminLayout";
 import { getAll, addItem, updateItem, deleteItem } from "../../utils/db";
 import { Plus, Pencil, Trash2 } from "lucide-react";
 
 export default function PriceManager() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(() => getAll("prices") || []);
   const [edit, setEdit] = useState(null);
   const [showForm, setShowForm] = useState(false);
-
-  useEffect(() => {
-    const data = getAll("prices");
-    if (data) setItems(data);
-  }, []);
 
   const refresh = () => {
     const data = getAll("prices");
