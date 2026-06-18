@@ -75,7 +75,7 @@ export default function ContactForm() {
                   icon: MaxIcon,
                   label: "Напишите нам в MAX",
                   value: "+7 (995) 199-09-22",
-                  href: "https://max.ru/",
+                  href: "https://app.max.ru/chat?phone=79951990922",
                 },
                 {
                   icon: MapPin,
