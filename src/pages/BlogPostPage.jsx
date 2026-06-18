@@ -7,6 +7,8 @@ import Seo from "../components/Seo";
 import BreadcrumbJsonLd from "../components/BreadcrumbJsonLd";
 import { getAll } from "../utils/db";
 
+const img = (src) => src?.startsWith("/") ? import.meta.env.BASE_URL + src.slice(1) : src;
+
 export default function BlogPostPage() {
   const { slug } = useParams();
   const post = useMemo(() => {
@@ -67,7 +69,7 @@ export default function BlogPostPage() {
           {post.image && (
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-white/5 to-white/[0.02] mb-8">
               <img
-                src={post.image}
+                src={img(post.image)}
                 alt={post.title}
                 className="w-full h-full object-cover"
                 loading="lazy"

@@ -4,6 +4,8 @@ import Seo from "../components/Seo";
 import BreadcrumbJsonLd from "../components/BreadcrumbJsonLd";
 import { getAll } from "../utils/db";
 
+const img = (src) => src?.startsWith("/") ? import.meta.env.BASE_URL + src.slice(1) : src;
+
 export default function PortfolioPage() {
   const projects = useMemo(() => getAll("portfolio") || [], []);
 
@@ -40,7 +42,7 @@ export default function PortfolioPage() {
               {project.image && (
                 <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-white/5 to-white/[0.02]">
                   <img
-                    src={project.image}
+                    src={img(project.image)}
                     alt={project.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     loading="lazy"
