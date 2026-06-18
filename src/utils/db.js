@@ -91,7 +91,7 @@ export function getAll(name) {
         const migrated = parsed.map((item) => {
           const def = defaultsMap[item.id];
           if (!def) return item;
-          const merged = { ...def, ...item, image: def.image || item.image };
+          const merged = { ...def, ...item, image: item.image || def.image };
           return merged;
         });
         setAll(name, migrated);

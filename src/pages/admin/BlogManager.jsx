@@ -1,24 +1,43 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import AdminLayout from "../../components/admin/AdminLayout";
 import { getAll, addItem, updateItem, deleteItem } from "../../utils/db";
-import { Plus, Pencil, Trash2 } from "lucide-react";
+import { Plus, Pencil, Trash2, Upload } from "lucide-react";
 
 export default function BlogManager() {
   const [items, setItems] = useState(() => getAll("blog") || []);
   const [edit, setEdit] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const [preview, setPreview] = useState("");
+  const fileRef = useRef(null);
 
   const refresh = () => {
     const data = getAll("blog");
     if (data) setItems(data);
     setShowForm(false);
     setEdit(null);
+    setPreview("");
+  };
+
+  const openForm = (item) => {
+    setEdit(item);
+    setPreview(item?.image || "");
+    setShowForm(true);
+  };
+
+  const handleFile = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) { alert("Файл больше 5 МБ"); return; }
+    const reader = new FileReader();
+    reader.onload = () => setPreview(reader.result);
+    reader.readAsDataURL(file);
   };
 
   const handleSave = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const data = Object.fromEntries(form);
+    if (preview && preview.startsWith("data:")) data.image = preview;
     if (edit) {
       updateItem("blog", edit.id, data);
     } else {
@@ -31,7 +50,7 @@ export default function BlogManager() {
     <AdminLayout>
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">Блог</h1>
-        <button onClick={() => { setEdit(null); setShowForm(!showForm); }} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-accent text-dark font-semibold text-sm hover:bg-accent-hover transition-all">
+        <button onClick={() => { openForm(null); }} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-accent text-dark font-semibold text-sm hover:bg-accent-hover transition-all">
           <Plus size={16} /> Добавить
         </button>
       </div>
@@ -60,8 +79,18 @@ export default function BlogManager() {
               <textarea name="excerpt" defaultValue={edit?.excerpt} rows={2} className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-accent" />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">URL изображения (необязательно)</label>
-              <input name="image" defaultValue={edit?.image} placeholder="https://images.unsplash.com/..." className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-accent" />
+              <label className="block text-sm font-medium mb-1">URL или загрузите фото</label>
+              <input name="image" defaultValue={edit?.image && !edit?.image?.startsWith("data:") ? edit.image : ""} placeholder="https://example.com/photo.jpg" className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-accent mb-2" />
+              <button type="button" onClick={() => fileRef.current?.click()} className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
+                <Upload size={14} /> Выбрать файл
+              </button>
+              <span className="text-xs text-gray-400 ml-2">до 5 МБ</span>
+              <input ref={fileRef} type="file" accept="image/*" onChange={handleFile} className="hidden" />
+              {preview && (
+                <div className="relative mt-2 inline-block">
+                  <img src={preview} alt="" className="h-20 rounded-lg border border-gray-200 object-cover" />
+                </div>
+              )}
             </div>
             <div className="sm:col-span-2">
               <label className="block text-sm font-medium mb-1">Текст статьи</label>
@@ -72,7 +101,7 @@ export default function BlogManager() {
             <button type="submit" className="px-5 py-2.5 rounded-xl bg-accent text-dark font-semibold text-sm hover:bg-accent-hover transition-all">
               {edit ? "Сохранить" : "Добавить"}
             </button>
-            <button type="button" onClick={() => { setShowForm(false); setEdit(null); }} className="px-5 py-2.5 rounded-xl border border-gray-200 text-sm hover:bg-gray-50 transition-all">Отмена</button>
+            <button type="button" onClick={() => { refresh(); }} className="px-5 py-2.5 rounded-xl border border-gray-200 text-sm hover:bg-gray-50 transition-all">Отмена</button>
           </div>
         </form>
       )}
@@ -95,7 +124,7 @@ export default function BlogManager() {
                 <td className="p-4 text-gray-500">{item.date}</td>
                 <td className="p-4 text-right">
                   <div className="flex gap-1 justify-end">
-                    <button onClick={() => { setEdit(item); setShowForm(true); }} className="p-2 text-gray-400 hover:text-accent transition-colors"><Pencil size={16} /></button>
+                    <button onClick={() => { openForm(item); }} className="p-2 text-gray-400 hover:text-accent transition-colors"><Pencil size={16} /></button>
                     <button onClick={() => { deleteItem("blog", item.id); refresh(); }} className="p-2 text-gray-400 hover:text-red-500 transition-colors"><Trash2 size={16} /></button>
                   </div>
                 </td>
