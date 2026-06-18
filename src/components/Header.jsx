@@ -115,6 +115,41 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Категории под навигацией */}
+      <div className="border-t border-white/5 bg-dark/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none">
+            <span className="text-xs text-white/40 font-medium uppercase tracking-wider mr-1 shrink-0">
+              Тип системы:
+            </span>
+            <Link
+              to="/services/industrial"
+              className="shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-accent/50 hover:bg-accent/10 transition-all"
+            >
+              Промышленные
+            </Link>
+            <Link
+              to="/services/semi-industrial"
+              className="shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-accent/50 hover:bg-accent/10 transition-all"
+            >
+              Полупромышленные
+            </Link>
+            <Link
+              to="/services/repair"
+              className="shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-accent/50 hover:bg-accent/10 transition-all"
+            >
+              Бытовые сплит-системы
+            </Link>
+            <Link
+              to="/services/maintenance"
+              className="shrink-0 text-xs font-medium px-3.5 py-1.5 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-accent/50 hover:bg-accent/10 transition-all"
+            >
+              Обслуживание
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {open && (
         <div className="lg:hidden border-t border-white/5 bg-dark/98 backdrop-blur-sm">
           <div className="px-4 py-4 space-y-1">
