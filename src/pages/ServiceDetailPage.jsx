@@ -45,17 +45,29 @@ export default function ServiceDetailPage() {
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">{service.title}</h1>
           <p className="text-lg text-white/50 mb-8">{service.desc}</p>
 
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 mb-8">
-            <h2 className="text-xl font-semibold mb-4">Что входит в услугу</h2>
-            <ul className="space-y-3">
-              {(service.features || []).map((f) => (
-                <li key={f} className="flex items-start gap-3 text-sm text-white/60">
-                  <Check size={18} className="text-accent shrink-0 mt-0.5" />
-                  {f}
-                </li>
+          {service.tariffs ? (
+            <div className="grid sm:grid-cols-3 gap-4 mb-8">
+              {service.tariffs.map((t) => (
+                <div key={t.name} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-accent/30 transition-all">
+                  <div className="text-lg font-bold mb-1">{t.name}</div>
+                  <div className="text-2xl font-bold text-accent mb-3">{t.price}</div>
+                  <p className="text-sm text-white/50">{t.desc}</p>
+                </div>
               ))}
-            </ul>
-          </div>
+            </div>
+          ) : (
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 mb-8">
+              <h2 className="text-xl font-semibold mb-4">Что входит в услугу</h2>
+              <ul className="space-y-3">
+                {(service.features || []).map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-sm text-white/60">
+                    <Check size={18} className="text-accent shrink-0 mt-0.5" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div>

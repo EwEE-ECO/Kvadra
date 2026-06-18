@@ -55,14 +55,28 @@ export default function ServicesPage() {
                 </div>
                 <h2 className="text-2xl font-bold mb-3">{service.title}</h2>
                 <p className="text-white/50 mb-6 leading-relaxed">{service.shortDesc || service.desc}</p>
-                <ul className="space-y-2.5 mb-6">
-                  {(service.features || []).map((f) => (
-                    <li key={f} className="flex items-center gap-2.5 text-sm text-white/60">
-                      <Check size={16} className="text-accent shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
+                {service.tariffs ? (
+                  <div className="space-y-3 mb-6">
+                    {service.tariffs.map((t) => (
+                      <div key={t.name} className="bg-white/5 rounded-xl p-4 border border-white/10">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-semibold text-white">{t.name}</span>
+                          <span className="font-bold text-accent">{t.price}</span>
+                        </div>
+                        <p className="text-xs text-white/40">{t.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <ul className="space-y-2.5 mb-6">
+                    {(service.features || []).map((f) => (
+                      <li key={f} className="flex items-center gap-2.5 text-sm text-white/60">
+                        <Check size={16} className="text-accent shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <div className="flex items-center justify-between gap-3 flex-wrap">
                   <span className="text-xl font-bold text-accent">{service.price}</span>
                   <Link

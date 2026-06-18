@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Wrench, Search, Droplets, ArrowRight, Star } from "lucide-react";
+import { Wind, Wrench, Search, Droplets, ArrowRight, Star } from "lucide-react";
 
 const iconMap = {
+  Wind: Wind,
   Wrench: Wrench,
   Search: Search,
   Droplets: Droplets,
 };
 
 const defaultServices = [
+  { id: "7", icon: "Wind", title: "Техническое обслуживание", shortDesc: "Три тарифа: Базовый, Стандарт или Премиум. Комплексное обслуживание любой сложности.", price: "от 3 500 ₽", slug: "maintenance", popular: true },
   { id: "2", icon: "Wrench", title: "Ремонт кондиционеров", shortDesc: "Быстрый и качественный ремонт сплит-систем всех брендов. Замена компрессоров, вентиляторов, плат управления.", price: "от 2 000 ₽", slug: "repair", popular: false },
-  { id: "3", icon: "Search", title: "Диагностика", shortDesc: "Полная диагностика системы кондиционирования. Выявление неисправностей с помощью профессионального оборудования.", price: "от 500 ₽", slug: "diagnostics", popular: false },
-  { id: "4", icon: "Droplets", title: "Заправка фреоном", shortDesc: "Проверка давления, поиск утечек, дозаправка или полная заправка кондиционера фреоном.", price: "от 2 500 ₽", slug: "refill", popular: true },
+  { id: "3", icon: "Search", title: "Диагностика", shortDesc: "Полная диагностика системы кондиционирования. Бесплатно при заказе ремонта.", price: "Бесплатно / 1 500 ₽", slug: "diagnostics", popular: false },
+  { id: "4", icon: "Droplets", title: "Заправка фреоном", shortDesc: "Проверка давления, поиск утечек, дозаправка или полная заправка кондиционера фреоном.", price: "от 1 500 ₽", slug: "refill", popular: true },
 ];
 
 export default function ServicesSection({ services }) {
