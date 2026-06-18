@@ -191,10 +191,11 @@ export default function ContactForm() {
                     required
                   />
                   <span className="text-xs text-white/40 leading-relaxed">
-                    Нажимая кнопку, вы даёте{' '}
+                    Я даю согласие{' '}
                     <Link to="/privacy" className="text-accent hover:underline" target="_blank">
-                      согласие на обработку персональных данных
-                    </Link>
+                      ИП Попов В.Н.
+                    </Link>{' '}
+                    на обработку моих персональных данных (имя, телефон) в&nbsp;соответствии с&nbsp;152‑ФЗ
                   </span>
                 </label>
                 <button
