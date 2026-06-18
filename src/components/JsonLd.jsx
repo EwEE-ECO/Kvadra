@@ -8,7 +8,7 @@ export default function JsonLd() {
     image: `${import.meta.env.BASE_URL}og-image.svg`,
     url: "https://ewee-eco.github.io/Kvadra/",
     telephone: "+79951990922",
-    email: "info@kvadraservice.ru",
+    email: "kvadro.service@yandex.ru",
     description: "Ремонт, чистка, диагностика и заправка кондиционеров в Краснодаре.",
     address: {
       "@type": "PostalAddress",

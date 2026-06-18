@@ -80,10 +80,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@kvadraservice.ru"
+                  href="mailto:kvadro.service@yandex.ru"
                   className="hover:text-accent transition-colors"
                 >
-                  info@kvadraservice.ru
+                  kvadro.service@yandex.ru
                 </a>
               </li>
               <li className="text-white/30 text-xs">

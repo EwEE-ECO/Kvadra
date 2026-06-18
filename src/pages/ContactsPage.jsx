@@ -28,7 +28,7 @@ export default function ContactsPage() {
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {[
               { label: "Телефон", value: "+7 (995) 199-09-22", href: "tel:+79951990922" },
-              { label: "Email", value: "info@kvadraservice.ru", href: "mailto:info@kvadraservice.ru" },
+              { label: "Email", value: "kvadro.service@yandex.ru", href: "mailto:kvadro.service@yandex.ru" },
               { label: "Адрес", value: "г. Краснодар, ул. Ростовское шоссе, д. 30/7, к. 2" },
             ].map((item) => (
               <motion.div

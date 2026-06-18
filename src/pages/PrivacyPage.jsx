@@ -82,7 +82,7 @@ export default function PrivacyPage() {
               <p>ИНН: 235300220152</p>
               <p>г. Краснодар, ул. Ростовское шоссе, д. 30/7, к. 2</p>
               <p>Телефон: +7 (995) 199-09-22</p>
-              <p>E-mail: info@kvadraservice.ru</p>
+              <p>E-mail: kvadro.service@yandex.ru</p>
               <div className="mt-3 text-white/50">
                 <p className="font-medium text-white mb-1">Реквизиты:</p>
                 <p>р/с: 40802810530160000611</p>
