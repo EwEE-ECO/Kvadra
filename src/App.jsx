@@ -3,7 +3,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingButtons from "./components/FloatingButtons";
 import CookieConsent from "./components/CookieConsent";
-import ScrollToTop from "./components/ScrollToTop";
 import JsonLd from "./components/JsonLd";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
@@ -47,7 +46,6 @@ function PublicLayout() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
-      <ScrollToTop />
       <Footer />
       <FloatingButtons />
       <CookieConsent />
